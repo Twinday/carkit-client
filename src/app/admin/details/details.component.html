@@ -7,7 +7,9 @@
         </div>
 
         <mat-list>
-            <mat-list-item *ngFor="let detail of details">
+            <mat-list-item *ngFor="let detail of details; let i = index">
+                <button mat-raised-button
+                    (click)="onDetailClick(i)">Изменить</button>
                 {{detail.name}}
             </mat-list-item>    
         </mat-list>

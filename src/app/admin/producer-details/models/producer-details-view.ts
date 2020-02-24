@@ -4,7 +4,7 @@ export interface IProducerDetails {
     trustLevel: number;
 }
 
-export class Work implements IProducerDetails {
+export class ProducerDetails implements IProducerDetails {
     id = 0;
     name = '';
     trustLevel = 0;

@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { IWork } from '../../works/models/work-view';
 import { IProducerDetails } from '../../producer-details/models/producer-details-view';
 import { WorksService } from '../../works/services/works.service';
+import { ProducerDetailsService } from '../../producer-details/services/producer-details.service';
+import { IResult } from 'src/app/_shared/models/get-result-model';
 
 @Component({
   selector: 'app-details-form',
@@ -21,7 +23,8 @@ export class DetailsFormComponent implements OnInit, OnChanges {
   formGroup: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private workService: WorksService) { }
+              private workService: WorksService,
+              private producerDetailService: ProducerDetailsService) { }
 
   ngOnInit() {
     this.formGroup = this.fb.group({
@@ -33,8 +36,12 @@ export class DetailsFormComponent implements OnInit, OnChanges {
       trustLevel: new FormControl('')
     });
 
-    this.workService.getAllByConfig<any>().subscribe(result => {
+    this.workService.getAllByConfig<IResult<IWork>>().subscribe(result => {
       this.works = result.items;
+    });
+
+    this.producerDetailService.getAllByConfig<IResult<IProducerDetails>>().subscribe(result => {
+      this.producerDetails = result.items;
     });
 
     this.updateDetail();

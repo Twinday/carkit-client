@@ -21,6 +21,8 @@ import { ProducerDetailsComponent } from './admin/producer-details/producer-deta
 import { HttpCRUDService } from './_shared/services/httpCRUD.service';
 import { DetailsService } from './admin/details/_services/details.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WorksService } from './admin/works/services/works.service';
+import { ProducerDetailsService } from './admin/producer-details/services/producer-details.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClient,
     //HttpCRUDService,
     DetailsService,
+    WorksService,
+    ProducerDetailsService,
   ],
   bootstrap: [AppComponent]
 })
