@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="form-button">
+        <button mat-raised-button
+                color="primary"
+                [disabled]="!isValid()"
+                (click)="save()">Сохранить</button>
+
+        <button mat-raised-button
+                (click)="close()">Закрыть</button>
+    </div>
+    <fieldset [formGroup]="formGroup">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Название</mat-label>
+            <input matInput
+                   required
+                   autocomplete="off"
+                   formControlName="name"
+                   placeholder="Название">
+            <mat-error *ngIf="hasError('name', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Стоимость</mat-label>
+            <input matInput
+                   required
+                   autocomplete="off"
+                   type="number"
+                   [min]="0"
+                   formControlName="cost"
+                   placeholder="Стоимость">
+            <mat-error *ngIf="hasError('name', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Вид работы</mat-label>
+            <mat-select required
+                        formControlName="workId"
+                        placeholder="Вид работы">
+                <mat-option *ngFor="let work of works;"
+                            [value]="work.id">
+                    {{work.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('workId', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Производитель детали</mat-label>
+            <mat-select required
+                        formControlName="producerDetailsId"
+                        placeholder="Производитель детали">
+                <mat-option *ngFor="let producerDetail of producerDetails;"
+                            [value]="producerDetail.id">
+                    {{producerDetail.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('producerDetailsId', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+
+    </fieldset>
+</div>
