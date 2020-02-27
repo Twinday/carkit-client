@@ -1,0 +1,23 @@
+<div class="form-button">
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!isValid()"
+            (click)="add()">Сохранить</button>
+
+    <button mat-raised-button
+            (click)="close()">Закрыть</button>
+</div>
+<div *ngIf="selectedDetails">
+        <h3>Выбрано</h3>
+        <div *ngFor="let detail of selectedDetails">{{detail.name}}</div>
+        <div>_____________________________________</div>
+</div>
+<div>
+        <div *ngFor="let work of otherWorks; let i = index">
+                <h3>{{work.name}}</h3>
+                <div *ngFor="let detail of work.details; let j = index">
+                        <button mat-mini-fab color="warn"
+                        (click)="onDetailClick(i, j, 1)">+</button> {{detail.name}}
+                </div>
+        </div>
+</div>

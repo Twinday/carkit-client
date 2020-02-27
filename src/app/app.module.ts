@@ -15,7 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule, MatSelectModule } from '@angular/material';
+import { MatInputModule, MatSelectModule, MatDialogModule } from '@angular/material';
 import { WorksComponent } from './admin/works/works.component';
 import { ProducerDetailsComponent } from './admin/producer-details/producer-details.component';
 import { HttpCRUDService } from './_shared/services/httpCRUD.service';
@@ -23,6 +23,8 @@ import { DetailsService } from './admin/details/_services/details.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WorksService } from './admin/works/services/works.service';
 import { ProducerDetailsService } from './admin/producer-details/services/producer-details.service';
+import { AddCarComponent } from './main-page/add-car/add-car.component';
+import { AddWorkDetailComponent } from './main-page/add-work-detail/add-work-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ProducerDetailsService } from './admin/producer-details/services/produc
     DetailsFormComponent,
     WorksComponent,
     ProducerDetailsComponent,
+    AddCarComponent,
+    AddWorkDetailComponent,
   ],
   imports: [
     HttpClientModule,
@@ -49,6 +53,11 @@ import { ProducerDetailsService } from './admin/producer-details/services/produc
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDialogModule,
+  ],
+  entryComponents: [
+    AddCarComponent,
+    AddWorkDetailComponent,
   ],
   providers: [
     HttpClient,

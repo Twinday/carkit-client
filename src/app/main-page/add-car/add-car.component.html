@@ -1,0 +1,37 @@
+<div class="form-button">
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!isValid()"
+            (click)="add()">Сохранить</button>
+
+    <button mat-raised-button
+            (click)="close()">Закрыть</button>
+</div>
+<fieldset [formGroup]="formGroup">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Авто</mat-label>
+        <mat-select required
+                    formControlName="carCardId"
+                    placeholder="Авто">
+            <mat-option *ngFor="let car of carCards;"
+                        [value]="car">
+                {{car.producer}} {{car.name}} {{car.year}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Пробег</mat-label>
+        <input matInput
+               required
+               autocomplete="off"
+               type="number"
+               [min]="0"
+               formControlName="kilometrage"
+               placeholder="Пробег">
+        <mat-error *ngIf="hasError('kilometrage', 'required')">
+            Обязательное поле
+        </mat-error>
+    </mat-form-field>
+</fieldset>

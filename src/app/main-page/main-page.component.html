@@ -1,1 +1,19 @@
-<p>main-page works!</p>
+<div class="main-page">
+
+        <div class="section" *ngIf="showStep(stepCar)">
+                <button mat-raised-button
+                color="primary"
+                (click)="addCarCard()">Выбрать авто</button>
+
+                <div *ngIf="carInput">
+                <p>{{carInput.producer}} {{carInput.name}} {{carInput.year}}, Пробег: {{carInput.kilometrage}} км</p>
+                </div>
+        </div>
+
+        <div class="section" *ngIf="showStep(stepDetail)">
+                <button mat-raised-button
+                color="primary"
+                (click)="addDetails()">Что будем менять?</button>
+        </div>
+
+</div>
