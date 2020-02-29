@@ -1,0 +1,44 @@
+<div class="form-button">
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!isValid()"
+            (click)="add()">Сохранить</button>
+
+    <button mat-raised-button
+            (click)="close()">Закрыть</button>
+</div>
+<div>
+    <fieldset [formGroup]="formGroup">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Автомастерская</mat-label>
+            <mat-select required
+                        formControlName="repairShopId"
+                        placeholder="Автомастерская">
+                <mat-option *ngFor="let repairShop of repairShops;"
+                            [value]="repairShop.id">
+                    {{repairShop.address}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('repairShopId', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Время начала обслуживания</mat-label>
+            <mat-select required
+                        formControlName="time"
+                        placeholder="Время начала обслуживания">
+                <mat-option *ngFor="let time of times;"
+                            [value]="time">
+                    {{time}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('time', 'required')">
+                Обязательное поле
+            </mat-error>
+        </mat-form-field>
+    
+    </fieldset>
+</div>

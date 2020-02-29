@@ -25,6 +25,12 @@ import { WorksService } from './admin/works/services/works.service';
 import { ProducerDetailsService } from './admin/producer-details/services/producer-details.service';
 import { AddCarComponent } from './main-page/add-car/add-car.component';
 import { AddWorkDetailComponent } from './main-page/add-work-detail/add-work-detail.component';
+import { UnitService } from './main-page/add-work-detail/service/unit.service';
+import { WorkDetailService } from './main-page/add-work-detail/service/work-detail.service';
+import { AddRepairShopComponent } from './main-page/add-repair-shop/add-repair-shop.component';
+import { CommonModule } from '@angular/common';
+import { MomentModule } from "ngx-moment";
+import { AddPhoneComponent } from './main-page/add-phone/add-phone.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,8 @@ import { AddWorkDetailComponent } from './main-page/add-work-detail/add-work-det
     ProducerDetailsComponent,
     AddCarComponent,
     AddWorkDetailComponent,
+    AddRepairShopComponent,
+    AddPhoneComponent,
   ],
   imports: [
     HttpClientModule,
@@ -54,16 +62,22 @@ import { AddWorkDetailComponent } from './main-page/add-work-detail/add-work-det
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    CommonModule,
+    MomentModule,
   ],
   entryComponents: [
     AddCarComponent,
     AddWorkDetailComponent,
+    AddRepairShopComponent,
+    AddPhoneComponent,
   ],
   providers: [
     HttpClient,
     //HttpCRUDService,
     DetailsService,
     WorksService,
+    UnitService,
+    WorkDetailService,
     ProducerDetailsService,
   ],
   bootstrap: [AppComponent]

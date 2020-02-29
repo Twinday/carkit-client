@@ -14,6 +14,29 @@
                 <button mat-raised-button
                 color="primary"
                 (click)="addDetails()">Что будем менять?</button>
+
+                <div *ngIf="details">
+                        <div *ngFor="let detail of details">
+                                <p>{{detail.detailName}} - {{detail.count}} {{detail.unitName}}</p>
+                        </div>
+                </div>
+        </div>
+
+        <div class="section" *ngIf="showStep(stepRepairShop)">
+                <button mat-raised-button
+                color="primary"
+                (click)="addRepairShop()">Выбрать автомастерскую</button>
+
+                <div *ngIf="repairShopInput">
+                <p>{{repairShopInput.repairShopName}} {{repairShopInput.date | date: 'dd.MM.yyyy HH.mm'}}</p>
+                </div>
+        </div>
+
+        <div class="section" *ngIf="showStep(stepPhone)">
+                <button mat-raised-button
+                color="primary"
+                (click)="addPhone()">Ввести номер телефона</button>
+
         </div>
 
 </div>

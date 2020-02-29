@@ -7,9 +7,42 @@
     <button mat-raised-button
             (click)="close()">Закрыть</button>
 </div>
+<div>
+        <fieldset [formGroup]="formGroup">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Единицы измерения</mat-label>
+                    <mat-select required
+                                formControlName="unitId"
+                                placeholder="Единицы измерения">
+                        <mat-option *ngFor="let unit of units;"
+                                    [value]="unit.id">
+                            {{unit.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('unitId', 'required')">
+                        Обязательное поле
+                    </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Количество</mat-label>
+                    <input matInput
+                           required
+                           autocomplete="off"
+                           type="number"
+                           [min]="0"
+                           formControlName="count"
+                           placeholder="Количество">
+                    <mat-error *ngIf="hasError('count', 'required')">
+                        Обязательное поле
+                    </mat-error>
+                </mat-form-field>
+            </fieldset>
+</div>
 <div *ngIf="selectedDetails">
         <h3>Выбрано</h3>
-        <div *ngFor="let detail of selectedDetails">{{detail.name}}</div>
+        <div *ngFor="let detail of selectedDetails">{{detail.detailName}} - {{detail.count}} {{detail.unitName}}</div>
         <div>_____________________________________</div>
 </div>
 <div>
