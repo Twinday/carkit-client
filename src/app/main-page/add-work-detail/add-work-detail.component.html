@@ -42,7 +42,7 @@
 </div>
 <div *ngIf="selectedDetails">
         <h3>Выбрано</h3>
-        <div *ngFor="let detail of selectedDetails">{{detail.detailName}} - {{detail.count}} {{detail.unitName}}</div>
+        <div *ngFor="let detail of selectedDetails">{{detail.detailName}} - {{detail.count}} {{detail.unitName}} по {{detail.cost}} руб.</div>
         <div>_____________________________________</div>
 </div>
 <div>
@@ -50,7 +50,7 @@
                 <h3>{{work.name}}</h3>
                 <div *ngFor="let detail of work.details; let j = index">
                         <button mat-mini-fab color="warn"
-                        (click)="onDetailClick(i, j, 1)">+</button> {{detail.name}}
+                        (click)="onDetailClick(i, j, 1)">+</button> {{detail.name}} - {{detail.cost}} руб.
                 </div>
         </div>
 </div>

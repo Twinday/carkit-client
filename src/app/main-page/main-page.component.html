@@ -15,6 +15,10 @@
                 color="primary"
                 (click)="addDetails()">Что будем менять?</button>
 
+                <div *ngIf="timePeriod">
+                        <p>Время обслуживания - {{timePeriod}} ч.</p>
+                </div>
+
                 <div *ngIf="details">
                         <div *ngFor="let detail of details">
                                 <p>{{detail.detailName}} - {{detail.count}} {{detail.unitName}}</p>
@@ -37,6 +41,16 @@
                 color="primary"
                 (click)="addPhone()">Ввести номер телефона</button>
 
+                <div *ngIf="user">
+                        <p>{{user.name}} {{user.phone}}</p>
+                </div>
+
+        </div>
+
+        <div class="section" *ngIf="showStep(stepOrder)">
+                <button mat-raised-button
+                color="primary"
+                (click)="addOrder()">Оформить заказ</button>
         </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { DataTableConfig } from 'src/app/_shared/models/data-table-config';
+import { ILinkedOrderDetail } from './linked-order-detail-model';
 
 export interface IWorkDetailConfig extends DataTableConfig {
     modelCarId: number;
@@ -16,9 +17,26 @@ export class WorkDetailConfig extends DataTableConfig implements IWorkDetailConf
     }
 }
 
+export interface ITimePeriodSearchData {
+    details: ILinkedOrderDetail[];
+    modelCarId: number;
+}
+
+export class TimePeriodSearchData extends DataTableConfig implements ITimePeriodSearchData {
+    modelCarId = 0;
+    details = [];
+
+    constructor(data: Partial<ITimePeriodSearchData> = {}) {
+        super();
+        this.details = data.details || this.details;
+        this.modelCarId = data.modelCarId || this.modelCarId;
+    }
+}
+
 export interface IDetailListView {
     id: number;
-    name: string;   
+    name: string;
+    cost: number;
     modelCarIds: number[];
 }
 

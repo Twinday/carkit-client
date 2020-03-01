@@ -1,1 +1,35 @@
-<p>add-phone works!</p>
+<div class="form-button">
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!isValid()"
+            (click)="add()">Сохранить</button>
+
+    <button mat-raised-button
+            (click)="close()">Закрыть</button>
+</div>
+<fieldset [formGroup]="formGroup">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Телефон</mat-label>
+        <input matInput
+               required
+               autocomplete="off"
+               formControlName="phone"
+               placeholder="X-XXX-XXX-XX-XX">
+        <mat-error *ngIf="hasError('phone', 'required')">
+            Обязательное поле
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Как вас зовут</mat-label>
+        <input matInput
+               required
+               autocomplete="off"
+               formControlName="name"
+               placeholder="Имя">
+        <mat-error *ngIf="hasError('name', 'required')">
+            Обязательное поле
+        </mat-error>
+    </mat-form-field>
+</fieldset>

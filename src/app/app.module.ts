@@ -31,6 +31,10 @@ import { AddRepairShopComponent } from './main-page/add-repair-shop/add-repair-s
 import { CommonModule } from '@angular/common';
 import { MomentModule } from "ngx-moment";
 import { AddPhoneComponent } from './main-page/add-phone/add-phone.component';
+import { DetailsTimePeriodService } from './main-page/_services/details-time-period.service';
+import { UserService } from './_shared/services/user.service';
+import { CarService } from './main-page/_services/car.service';
+import { OrderService } from './main-page/_services/order.service';
 
 @NgModule({
   declarations: [
@@ -79,6 +83,10 @@ import { AddPhoneComponent } from './main-page/add-phone/add-phone.component';
     UnitService,
     WorkDetailService,
     ProducerDetailsService,
+    DetailsTimePeriodService,
+    UserService,
+    CarService,
+    OrderService,
   ],
   bootstrap: [AppComponent]
 })
