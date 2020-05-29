@@ -112,10 +112,9 @@ export class MainPageComponent implements OnInit {
     // To Do: высчитать стоимость заказа.
     order.cost = 0;
     order.linkedOrderDetails = this.details;
-    console.log(order);
 
     this.orderService.create<IOrder>(order).subscribe(result => {
-      
+      alert('Заявка отправлена');
     });
   }
 

@@ -35,6 +35,7 @@ import { DetailsTimePeriodService } from './main-page/_services/details-time-per
 import { UserService } from './_shared/services/user.service';
 import { CarService } from './main-page/_services/car.service';
 import { OrderService } from './main-page/_services/order.service';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { OrderService } from './main-page/_services/order.service';
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    MatTabsModule,
     CommonModule,
     MomentModule,
   ],

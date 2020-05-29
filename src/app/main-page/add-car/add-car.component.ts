@@ -23,6 +23,7 @@ export class AddCarComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.fb.group({
       carCardId: new FormControl(''),
+      vin: new FormControl(''),
       kilometrage: new FormControl('', [Validators.required])
     });
 
@@ -41,14 +42,27 @@ export class AddCarComponent implements OnInit {
 
   add() {
     let value = this.formGroup.value;
-    this.dialogRef.close({
-      carCardId: value.carCardId.id,
-      kilometrage: value.kilometrage,
-      name: value.carCardId.name,
-      producer: value.carCardId.producer,
-      year: value.carCardId.year,
-      modelCarId: value.carCardId.modelCarId
-    });
+    if (value.vin != null && value.vin !== '') {
+      this.carCardService.parseVIN(value.vin).subscribe(result => {
+        this.dialogRef.close({
+          carCardId: result.id,
+          kilometrage: value.kilometrage,
+          name: result.name,
+          producer: result.producer,
+          year: result.year,
+          modelCarId: result.modelCarId
+        });
+      });
+    } else {
+      this.dialogRef.close({
+        carCardId: value.carCardId.id,
+        kilometrage: value.kilometrage,
+        name: value.carCardId.name,
+        producer: value.carCardId.producer,
+        year: value.carCardId.year,
+        modelCarId: value.carCardId.modelCarId
+      });
+    }
   }
 
   hasError(controlName: string, errorName: string) {

@@ -9,17 +9,38 @@
 </div>
 <fieldset [formGroup]="formGroup">
 
-    <mat-form-field appearance="outline">
-        <mat-label>Авто</mat-label>
-        <mat-select required
-                    formControlName="carCardId"
-                    placeholder="Авто">
-            <mat-option *ngFor="let car of carCards;"
-                        [value]="car">
-                {{car.producer}} {{car.name}} {{car.year}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    <mat-tab-group>
+
+        <mat-tab label="Выбор авто">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Авто</mat-label>
+                <mat-select required
+                            formControlName="carCardId"
+                            placeholder="Авто">
+                    <mat-option *ngFor="let car of carCards;"
+                                [value]="car">
+                        {{car.producer}} {{car.name}} {{car.year}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </mat-tab>
+
+        <mat-tab label="VIN">
+
+            <mat-form-field appearance="outline">
+                <mat-label>VIN-номер</mat-label>
+                <input matInput
+                       required
+                       formControlName="vin"
+                       autocomplete="off"
+                       placeholder="VIN-номер">
+            </mat-form-field>
+
+        </mat-tab>
+        
+      </mat-tab-group>
 
     <mat-form-field appearance="outline">
         <mat-label>Пробег</mat-label>
