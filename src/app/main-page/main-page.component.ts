@@ -27,7 +27,7 @@ export enum StepsChoose {
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnUpdate {
 
   carInput: ICarInput;
   car: ICar;
@@ -42,6 +42,11 @@ export class MainPageComponent implements OnInit {
               private orderService: OrderService) { }
 
   ngOnInit() {
+  }
+
+  ngOnUpdate()
+  {
+    
   }
 
   stepCar = StepsChoose.CAR;
